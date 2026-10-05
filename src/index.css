@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #6D4FF0;
+  --color-brand-hover: #5B3BDC;
+  --color-brand-dark: #5430D7;
+  --color-brand-light: #E6DEFF;
+
+  --color-surface: #f9fafb;
+  --color-surface-card: #ffffff;
+  --color-surface-hover: #f8fafc;
+  --color-surface-border: #e5e7eb;
+
+  --color-sidebar-bg: #000000;
+  --color-sidebar-border: #1f1f1f;
+  --color-sidebar-hover: #1a1a1a;
+  --color-sidebar-text: #9ca3af;
+
+  --color-on-surface: #111827;
+  --color-on-surface-variant: #6b7280;
+  --color-on-surface-muted: #94a3b8;
+
+  --color-success: #059669;
+  --color-success-bg: #d1fae5;
+  --color-success-border: #a7f3d0;
+  --color-success-ink: #065f46;
+
+  --color-warning: #d97706;
+  --color-warning-bg: #fef3c7;
+  --color-warning-border: #fde68a;
+  --color-warning-ink: #92400e;
+
+  --color-danger: #dc2626;
+  --color-danger-bg: #fee2e2;
+  --color-danger-border: #fecaca;
+  --color-danger-ink: #991b1b;
+
+  --font-sans: 'Satoshi', 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f9fafb;
+    color: #111827;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+  }
+}
+
+/* Material Symbols config */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Toast animations */
+@keyframes toast-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes toast-out {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes progress-stripe {
+  0% { background-position: 1rem 0; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes modal-in {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scanline {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up-fade {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-toast-in { animation: toast-in 0.3s ease-out forwards; }
+.animate-toast-out { animation: toast-out 0.3s ease-in forwards; }
+.animate-fade-out { animation: fade-out 0.3s ease-in forwards; }
+.animate-fade-in { animation: fade-in 0.3s ease-out forwards; }
+.animate-skeleton { animation: skeleton-pulse 1.5s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 1s linear infinite; }
+.animate-slide-in-right { animation: slide-in-right 0.3s ease-out forwards; }
+.animate-slide-up { animation: slide-up 0.3s ease-out forwards; }
+.animate-slide-up-fade { animation: slide-up-fade 0.4s ease-out forwards; }
+.animate-modal-in { animation: modal-in 0.2s ease-out forwards; }
+.animate-scanline { animation: scanline 1.5s linear infinite; }
+
+.progress-bar-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255,255,255,.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255,255,255,.15) 50%,
+    rgba(255,255,255,.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+  animation: progress-stripe 0.5s linear infinite;
+}
+
+/* Indian numbering tabular nums */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
